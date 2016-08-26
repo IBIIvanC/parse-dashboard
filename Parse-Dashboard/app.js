@@ -56,13 +56,7 @@ module.exports = function(config, allowInsecureHTTP) {
   // Serve the configuration.
   app.get('/parse-dashboard-config.json', function(req, res) {
     let response = {
-      apps: [{
-			  "serverURL": process.env.SERVER_URL,
-			  "appId": process.env.APP_ID,
-			  "masterKey": process.env.MASTER_KEY,
-			  "appName": process.env.APP_NAME,
-			  "iconName": ""
-			}],
+      apps: config.apps,
       newFeaturesInLatestVersion: newFeaturesInLatestVersion,
     };
 
